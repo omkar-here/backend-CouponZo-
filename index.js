@@ -19,7 +19,7 @@ app.use(
     origin: [
       "http://localhost:5173",
       "http://localhost:5174",
-      "https://couponzo.netlify.app/",
+      "https://couponzo.netlify.app",
     ],
     credentials: true,
   })
