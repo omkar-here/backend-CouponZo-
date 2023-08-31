@@ -73,26 +73,6 @@ module.exports.login = async (req, res) => {
   }
 };
 
-// module.exports.updateProfile = async (req, res) => {
-//   try {
-//     const { email, userName, companyName } = req.body;
-
-//     const user = await User.findOneAndUpdate(
-//       _id,
-//       {
-//         email: email,
-//         userName: userName,
-//         companyName: companyName,
-//       },
-//       { new: true }
-//     );
-//     res.status(200).json({ user: user._id });
-//   } catch (err) {
-//     const errors = handleErrors(err);
-//     res.status(400).json({ errors });
-//   }
-// };
-
 module.exports.test = async (req, res, next) => {
   const documents = await User.find();
   res.send(documents);
@@ -109,7 +89,7 @@ module.exports.verify = async (req, res) => {
   res.send(req.headers);
 };
 
-module.exports.logout_get = (req, res) => {
-  res.cookie("jwt", "", { maxAge: 1 });
-  res.json({ message: "user logged out" });
+module.exports.logout = async (req, res) => {
+  res.clearCookie("jwt");
+  res.status(200).json({ message: "Logged out successfully" });
 };
