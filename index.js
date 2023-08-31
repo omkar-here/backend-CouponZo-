@@ -16,12 +16,13 @@ const couponRoutes = require("./routes/Coupon");
 
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "http://localhost:5174",
-      "https://couponzo-app.netlify.app",
-    ],
-    credentials: true,
+    // origin: [
+    //   "http://localhost:5173",
+    //   "http://localhost:5174",
+    //   "https://couponzo-app.netlify.app",
+    // ],
+    // credentials: true,
+    origin: "*",
   })
 );
 app.use(express.json());
